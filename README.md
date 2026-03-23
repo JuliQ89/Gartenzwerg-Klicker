@@ -1,1 +1,1 @@
-Gartenzwerg Klicker
+# Gartenzwerg-Klicker
