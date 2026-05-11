@@ -10,7 +10,7 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
   const buyUpgrade = useKlickerStore((state) => state.buyUpgrade);
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
   
-  const onUpdgrade = () => {
+  const onUpgrade = () => {
     buyUpgrade(costs, type, anzahl)    
   }
 
@@ -19,9 +19,10 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
 
   return (
     <button
-      onClick={onUpdgrade}
-      className={`flex gap-1.5 ${buyable ? "bg-[rgba(175,175,175,0.6)] opacity-100" : "bg-[rgba(50,50,50,0.8)] opacity-60"} rounded-sm border border-[rgba(100,100,100,0.8)] p-3 cursor-pointer ring-2 ring-offset-0 ring-transparent hover:ring-offset-2 hover:ring-[rgb(50,50,50)]  transition-all`}
+      onClick={onUpgrade}
+      className={`relative flex gap-1.5 ${buyable ? "bg-[rgba(175,175,175,0.6)] opacity-100" : "bg-[rgba(50,50,50,0.8)] opacity-60"} rounded-sm border border-[rgba(100,100,100,0.8)] p-3 cursor-pointer ring-2 ring-offset-0 ring-transparent hover:ring-offset-2 hover:ring-[rgb(50,50,50)]  transition-all`}
     >
+      {/* <UpgradeTooltip title={title} costs={costs} buyedCount={1} description={""} /> */}
       <div className="w-12 h-12 rounded-full">
         <Image
           src={image}

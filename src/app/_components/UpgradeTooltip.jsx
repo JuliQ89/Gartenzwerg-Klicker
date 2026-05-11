@@ -2,6 +2,7 @@
 
 import scherbe from "@/assets/images/Scherbe.png";
 import useKlickerStore from "@/store/useKlickerStore";
+import Image from "next/image";
 
 const UpgradeTooltip = ({ title, costs, buyedCount, description }) => {
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
@@ -11,7 +12,7 @@ const UpgradeTooltip = ({ title, costs, buyedCount, description }) => {
   return (
     <div
       role="tooltip"
-      class="absolute z-10 px-3 py-2 bg-slate-800 border border-default rounded-base shadow-xs"
+      class="absolute top-1/2 -left-full z-10 px-3 py-2 bg-slate-800 border border-default rounded-base shadow-xs"
     >
       <div className="flex items-center justify-between w-full">
         <h2>{title}</h2>

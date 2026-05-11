@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Gartenzwerg Klicker</title>
       </head>
-      <body className="h-full">{children}</body>
+      <body className="h-screen overflow-hidden">{children}</body>
     </html>
   );
 }

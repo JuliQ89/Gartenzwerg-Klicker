@@ -16,8 +16,6 @@ const ScherbenCounter = () => {
   );
 
   useEffect(() => {
-    console.log("intervalVergroesserung:", intervalVergroesserung);
-
     if (!hasInterval) return;
     const interval = setInterval(() => {
       console.log("Interval");
