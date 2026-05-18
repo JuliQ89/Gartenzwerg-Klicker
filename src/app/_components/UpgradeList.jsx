@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Upgrade from './Upgrade'
+import Upgrade from "./Upgrade";
 import gartenzwerg_schubkarren from "@/assets/images/Upgrades/Gartenzwerg_Schubkarren.png";
 import gartenzwerg_scherbenmaschine from "@/assets/images/Upgrades/Gartenzwerg_Scherbenmaschine.png";
 import gartenzwerg_heckenschere from "@/assets/images/Upgrades/Gartenzwerg_Heckenschere.png";
@@ -8,16 +8,17 @@ import gartenzwerg_handwerker from "@/assets/images/Upgrades/Gartenzwerg_Handwer
 import gartenzwerg_elefant from "@/assets/images/Upgrades/Gartenzwerg_Elefant.png";
 import gartenzwerg_saphir from "@/assets/images/Upgrades/Gartenzwerg_Saphir.png";
 import gartenzwerg_mine from "@/assets/images/Upgrades/Gartenzwerg_Mine.png";
-import useKlickerStore from '@/store/useKlickerStore';
-
+import useKlickerStore from "@/store/useKlickerStore";
 
 export const UPGRADE_TYPES = {
   KLICK: "KLICK",
-  INTERVAL: "INTERVAL"
-}
+  INTERVAL: "INTERVAL",
+};
 
 const UpgradeList = () => {
-  const klickVergroeserung = useKlickerStore((state) => state.klickVergroeserung)
+  const klickVergroeserung = useKlickerStore(
+    (state) => state.klickVergroeserung,
+  );
 
   return (
     <div className="flex flex-col gap-3 w-full h-full">
@@ -72,6 +73,6 @@ const UpgradeList = () => {
       />
     </div>
   );
-}
+};
 
-export default UpgradeList
+export default UpgradeList;
