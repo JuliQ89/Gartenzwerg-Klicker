@@ -8,15 +8,15 @@ import ScherbenCounter from "./_components/ScherbenCounter";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)_300px] h-full">
+    <div className="grid grid-cols-[minmax(0,1fr)_300px] h-screen">
       <div className="relative z-0 w-full h-screen flex items-center justify-center">
-        <ScherbenCounter />
-        <Gartenzwerg image={gartenzwerg_default} />
         <Image
           src={background}
           className="absolute w-full h-full select-none"
           alt=""
         />
+        <ScherbenCounter />
+        <Gartenzwerg image={gartenzwerg_default} />
       </div>
 
       <Sidebar />

@@ -10,6 +10,22 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
   const buyUpgrade = useKlickerStore((state) => state.buyUpgrade);
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
+
+  const handleMouseEnter = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+
+    setTooltipPosition({
+      top: rect.top + rect.height / 2,
+      left: rect.left - 40,
+    });
+
+    setIsTooltipVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsTooltipVisible(false);
+  };
 
   const onUpgrade = () => {
     buyUpgrade(costs, type, anzahl);
@@ -25,15 +41,12 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
         buyedCount={1}
         description={""}
         isVisible={isTooltipVisible}
+        position={tooltipPosition}
       />
       <button
         onClick={onUpgrade}
-        onMouseEnter={() => {
-          setIsTooltipVisible(true);
-        }}
-        onMouseLeave={() => {
-          setIsTooltipVisible(false);
-        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         className={`w-full flex gap-1.5 ${buyable ? "bg-[rgba(175,175,175,0.6)] opacity-100" : "bg-[rgba(50,50,50,0.8)] opacity-60"} rounded-sm border border-[rgba(100,100,100,0.8)] p-3 cursor-pointer ring-2 ring-offset-0 ring-transparent hover:ring-offset-2 hover:ring-[rgb(50,50,50)]  transition-all`}
       >
         <div className="w-12 h-12 rounded-full">

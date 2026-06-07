@@ -10,6 +10,7 @@ const UpgradeTooltip = ({
   buyedCount,
   description,
   isVisible,
+  position,
 }) => {
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
 
@@ -18,7 +19,8 @@ const UpgradeTooltip = ({
   return (
     <div
       role="tooltip"
-      className={`${isVisible ? "visible" : "invisible"} min-w-62.5 w-fit absolute top-1/2 right-[calc(100%+40px)] -translate-y-1/2 z-50 px-5 py-2.5 rounded-sm bg-slate-900 border border-default rounded-base shadow-xs transition-all`}
+      style={{ top: `${position.top}px`, left: `${position.left}px` }}
+      className={`${isVisible ? "visible" : "invisible"} min-w-62.5 w-fit fixed -translate-x-full -translate-y-1/2 z-99999 px-5 py-2.5 rounded-sm bg-slate-900 border border-default rounded-base shadow-xs transition-transform`}
     >
       <div className="flex items-start justify-between gap-5 w-full">
         <div className="flex flex-col">
