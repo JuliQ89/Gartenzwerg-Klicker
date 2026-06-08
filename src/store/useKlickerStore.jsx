@@ -1,5 +1,6 @@
 import { create } from "zustand";
-import { UPGRADE_TYPES } from "@/app/_components/UpgradeList";
+import UPGRADE_TYPES from "@/utils/upgradeTypes";
+import useUpgradeStore from "./useUpgradeStore";
 
 const useKlickerStore = create((set, get) => ({
   klickVergroeserung: 1,
@@ -11,7 +12,9 @@ const useKlickerStore = create((set, get) => ({
       scherbenAnzahl: state.scherbenAnzahl + anzahl,
     }));
   },
-  buyUpgrade: (costs, type, anzahl) => {
+  buyUpgrade: (costs, type, anzahl, id) => {
+    const { incrementPossession, changeBuyedState } =
+      useUpgradeStore.getState();
     if (costs <= get().scherbenAnzahl) {
       if (type === UPGRADE_TYPES.KLICK) {
         set((state) => ({
@@ -26,10 +29,12 @@ const useKlickerStore = create((set, get) => ({
       set((state) => ({
         scherbenAnzahl: state.scherbenAnzahl - costs,
       }));
+      incrementPossession(id);
+      changeBuyedState(id);
     } else {
       alert("Du kannst dir dieses Upgrade nicht kaufen!");
     }
   },
 }));
 
-export default useKlickerStore
+export default useKlickerStore;

@@ -11,6 +11,7 @@ const UpgradeTooltip = ({
   description,
   isVisible,
   position,
+  buyed,
 }) => {
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
 
@@ -24,7 +25,9 @@ const UpgradeTooltip = ({
     >
       <div className="flex items-start justify-between gap-5 w-full">
         <div className="flex flex-col">
-          <h2 className="font-semibold text-lg text-white">{title}</h2>
+          <h2 className="font-semibold text-lg text-white">
+            {buyed ? title : "???"}
+          </h2>
           <div className="flex items-center justify-center rounded-sm px-1 py-0.5 bg-gray-300 text-slate-800 text-sm w-fit min-w-10">
             Im Besitz: {buyedCount}
           </div>
@@ -40,8 +43,8 @@ const UpgradeTooltip = ({
         </div>
       </div>
 
-      <ul>
-        <li className="text-gray-200">{description}</li>
+      <ul className="mt-2">
+        <li className="text-gray-400">{description}</li>
       </ul>
     </div>
   );

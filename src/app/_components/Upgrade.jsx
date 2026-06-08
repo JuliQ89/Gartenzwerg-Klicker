@@ -6,7 +6,17 @@ import useKlickerStore from "@/store/useKlickerStore";
 import scherbe from "@/assets/images/Scherbe.png";
 import UpgradeTooltip from "./UpgradeTooltip";
 
-const Upgrade = ({ title, costs, image, type, anzahl }) => {
+const Upgrade = ({
+  title,
+  costs,
+  image,
+  type,
+  anzahl,
+  possession,
+  tooltipDescription,
+  buyed,
+  id,
+}) => {
   const buyUpgrade = useKlickerStore((state) => state.buyUpgrade);
   const scherbenAnzahl = useKlickerStore((state) => state.scherbenAnzahl);
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);
@@ -28,7 +38,7 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
   };
 
   const onUpgrade = () => {
-    buyUpgrade(costs, type, anzahl);
+    buyUpgrade(costs, type, anzahl, id);
   };
 
   const buyable = costs <= scherbenAnzahl;
@@ -38,10 +48,11 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
       <UpgradeTooltip
         title={title}
         costs={costs}
-        buyedCount={1}
-        description={""}
+        buyedCount={possession}
+        description={tooltipDescription}
         isVisible={isTooltipVisible}
         position={tooltipPosition}
+        buyed={buyed}
       />
       <button
         onClick={onUpgrade}
@@ -57,7 +68,9 @@ const Upgrade = ({ title, costs, image, type, anzahl }) => {
           />
         </div>
         <div className="flex flex-col">
-          <h2 className="text-white font-medium text-xl">{title}</h2>
+          <h2 className="text-white font-medium text-xl">
+            {buyed ? title : "???"}
+          </h2>
           <div className="flex items-center">
             <p
               className={`font-semibold text-md ${buyable ? "text-emerald-600" : "text-rose-600"}`}
