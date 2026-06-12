@@ -1,6 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
 @import "tailwindcss";
 
+@theme inline {
+  --font-merriweather: "Merriweather", sans-serif; 
+
+  --color-creme: #F6EDDE;
+  --color-forestgreen: #2E6B3F;
+  --color-koralred: #E14D3D;
+  --color-gold: #E4B23C;
+
+  --color-primary: #3F2A1A;
+}
+
 body {
-  background: #dfdfdf;
-  font-family: Arial, Helvetica, sans-serif;
+  background: #faf6f0;
+  font-family: Arial, Helvetica, sans-serif; 
 }

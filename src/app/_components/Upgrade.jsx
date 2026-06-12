@@ -5,6 +5,7 @@ import Image from "next/image";
 import useKlickerStore from "@/store/useKlickerStore";
 import scherbe from "@/assets/images/Scherbe.png";
 import UpgradeTooltip from "./UpgradeTooltip";
+import { IoMdLock } from "react-icons/io";
 
 const Upgrade = ({
   title,
@@ -46,6 +47,7 @@ const Upgrade = ({
   return (
     <div className="relative w-full">
       <UpgradeTooltip
+        image={image}
         title={title}
         costs={costs}
         buyedCount={possession}
@@ -58,27 +60,39 @@ const Upgrade = ({
         onClick={onUpgrade}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className={`w-full flex gap-1.5 ${buyable ? "bg-[rgba(175,175,175,0.6)] opacity-100" : "bg-[rgba(50,50,50,0.8)] opacity-60"} rounded-sm border border-[rgba(100,100,100,0.8)] p-3 cursor-pointer ring-2 ring-offset-0 ring-transparent hover:ring-offset-2 hover:ring-[rgb(50,50,50)]  transition-all`}
+        className={`w-full ${buyable ? "bg-[#ead9bf] border-gold opacity-100" : "bg-[#ebddc7] border-[#e6d1b1] opacity-60"} rounded-lg border-2 p-3 cursor-pointer ring-2 ring-offset-0 ring-transparent hover:ring-offset-2 hover:ring-forestgreen transition-all`}
       >
-        <div className="w-12 h-12 rounded-full">
-          <Image
-            src={image}
-            alt=""
-            className="rounded-[inherit] object-cover w-full h-full"
-          />
-        </div>
-        <div className="flex flex-col">
-          <h2 className="text-white font-medium text-xl">
-            {buyed ? title : "???"}
-          </h2>
-          <div className="flex items-center">
-            <p
-              className={`font-semibold text-md ${buyable ? "text-emerald-600" : "text-rose-600"}`}
+        <div className="w-full flex justify-between items-center gap-4">
+          <div className="w-full flex gap-1.5">
+            <div
+              className={`w-14 h-14 aspect-square rounded-full ${buyable ? "border-gold" : "border-[#e6d1b1]"}  border-2`}
             >
-              {costs}
-            </p>
-            <Image src={scherbe} alt="" className="w-8" />
+              <Image
+                src={image}
+                alt=""
+                className="rounded-[inherit] object-cover w-full h-full"
+              />
+            </div>
+            <div className="flex flex-col items-start">
+              <h2 className="text-primary font-semibold font-merriweather text-lg">
+                {buyed ? title : "???"}
+              </h2>
+              <div className="flex items-center">
+                <p
+                  className={`font-semibold font-merriweather text-md ${buyable ? "text-forestgreen" : "text-koralred"}`}
+                >
+                  {costs}
+                </p>
+                <Image src={scherbe} alt="" className="w-8" />
+              </div>
+            </div>
           </div>
+
+          {!buyed && (
+            <div>
+              <IoMdLock size={20} className="text-primary" />
+            </div>
+          )}
         </div>
       </button>
     </div>

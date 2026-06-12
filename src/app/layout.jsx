@@ -6,7 +6,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Gartenzwerg Klicker</title>
       </head>
-      <body className="h-screen">{children}</body>
+      <body className="h-screen bg-white">{children}</body>
     </html>
   );
 }
