@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import upgradeList from "@/utils/upgrades";
+import { PRICE_INCREASMENT_FACTOR } from "@/utils/constants";
 
 const useUpgradeStore = create((set, get) => ({
   upgradeList: upgradeList,
@@ -22,6 +23,18 @@ const useUpgradeStore = create((set, get) => ({
           ? {
               ...upgrade,
               buyed: true,
+            }
+          : upgrade,
+      ),
+    }));
+  },
+  increaseUpgradePriceByFactor: (id) => {
+    set((state) => ({
+      upgradeList: state.upgradeList.map((upgrade) =>
+        upgrade.id === id
+          ? {
+              ...upgrade,
+              costs: Math.round(upgrade.costs * PRICE_INCREASMENT_FACTOR),
             }
           : upgrade,
       ),

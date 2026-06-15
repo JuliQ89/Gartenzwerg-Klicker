@@ -1,0 +1,6 @@
+export const UPGRADE_TYPES = {
+  KLICK: "KLICK",
+  INTERVAL: "INTERVAL",
+};
+
+export const PRICE_INCREASMENT_FACTOR = 1.2;
