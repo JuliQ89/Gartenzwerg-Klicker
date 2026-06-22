@@ -21,7 +21,6 @@ const ScherbenCounter = () => {
     const interval = setInterval(() => {
       console.log("Interval");
       scherbenAnzahlVergroesern(intervalVergroesserung);
-      $;
     }, 1000);
     return () => clearInterval(interval);
   }, [hasInterval, intervalVergroesserung]);

@@ -32,6 +32,7 @@ export default function Home() {
           <Image
             src={backgroundImage}
             className="select-none object-cover w-full h-full"
+            loading="eager"
             alt=""
           />
         </div>
