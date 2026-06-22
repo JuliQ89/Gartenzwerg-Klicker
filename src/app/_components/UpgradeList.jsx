@@ -17,7 +17,7 @@ const UpgradeList = () => {
         upgradeList.map((upgrade) => (
           <Upgrade
             key={upgrade.id}
-            image={upgrade.image}
+            upgrade_image={upgrade.upgrade_image}
             costs={upgrade.costs}
             anzahl={upgrade.anzahl}
             possession={upgrade.possession}

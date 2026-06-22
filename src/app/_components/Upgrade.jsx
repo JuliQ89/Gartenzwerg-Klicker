@@ -10,7 +10,7 @@ import { IoMdLock } from "react-icons/io";
 const Upgrade = ({
   title,
   costs,
-  image,
+  upgrade_image,
   type,
   anzahl,
   possession,
@@ -47,7 +47,7 @@ const Upgrade = ({
   return (
     <div className="relative w-full">
       <UpgradeTooltip
-        image={image}
+        upgrade_image={upgrade_image}
         title={title}
         costs={costs}
         buyedCount={possession}
@@ -68,7 +68,7 @@ const Upgrade = ({
               className={`w-14 h-14 aspect-square rounded-full ${buyable ? "border-gold" : "border-[#e6d1b1]"}  border-2`}
             >
               <Image
-                src={image}
+                src={upgrade_image}
                 alt=""
                 className="rounded-[inherit] object-cover w-full h-full"
               />

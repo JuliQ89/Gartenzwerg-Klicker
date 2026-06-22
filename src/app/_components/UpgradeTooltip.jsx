@@ -5,7 +5,7 @@ import useKlickerStore from "@/store/useKlickerStore";
 import Image from "next/image";
 
 const UpgradeTooltip = ({
-  image,
+  upgrade_image,
   title,
   costs,
   buyedCount,
@@ -27,7 +27,7 @@ const UpgradeTooltip = ({
       <div className="w-full flex gap-4">
         <div className="w-14 h-14 aspect-square rounded-full border-2 border-gold">
           <Image
-            src={image}
+            src={upgrade_image}
             alt=""
             className="rounded-[inherit] object-cover w-full h-full"
           />
