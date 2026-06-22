@@ -6,6 +6,7 @@ import useKlickerStore from "@/store/useKlickerStore";
 import scherbe from "@/assets/images/Scherbe.png";
 import UpgradeTooltip from "./UpgradeTooltip";
 import { IoMdLock } from "react-icons/io";
+import formatNumber from "@/utils/formatScherbenAnzahl";
 
 const Upgrade = ({
   title,
@@ -81,7 +82,7 @@ const Upgrade = ({
                 <p
                   className={`font-semibold font-merriweather text-md ${buyable ? "text-forestgreen" : "text-koralred"}`}
                 >
-                  {costs}
+                  {formatNumber(costs)}
                 </p>
                 <Image src={scherbe} alt="" className="w-8" />
               </div>
