@@ -22,7 +22,7 @@ const UpgradeTooltip = ({
     <div
       role="tooltip"
       style={{ top: `${position.top}px`, left: `${position.left}px` }}
-      className={`${isVisible ? "visible" : "invisible"} min-w-62.5 w-fit fixed -translate-x-full -translate-y-1/2 z-99999 px-5 py-2.5 rounded-lg backdrop-blur-sm bg-[rgba(15,31,20,0.8)] border-2 border-gold rounded-base shadow-xs transition-transform`}
+      className={`${isVisible ? "visible" : "invisible"} min-w-90 w-fit fixed -translate-x-full -translate-y-1/2 z-99999 px-5 py-2.5 rounded-lg backdrop-blur-sm bg-[rgba(15,31,20,0.8)] border-2 border-gold rounded-base shadow-xs transition-transform`}
     >
       <div className="w-full flex gap-4">
         <div className="w-14 h-14 aspect-square rounded-full border-2 border-gold">

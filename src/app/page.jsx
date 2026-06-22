@@ -11,12 +11,17 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const upgradeList = useUpgradeStore((state) => state.upgradeList);
-  const { backgroundImage, setBackgroundImage } = useState(background_default);
-  const { gartenzwergImage, setGartenzwergImage } =
-    useState(gartenzwerg_default);
+  const [backgroundImage, setBackgroundImage] = useState(background_default);
+  const [gartenzwergImage, setGartenzwergImage] = useState(gartenzwerg_default);
 
   useEffect(() => {
-    console.log(upgradeList.filter((upgrade) => upgrade.buyed === true));
+    const buyedUpgrades = upgradeList
+      .filter((upgrade) => upgrade.buyed === true)
+      .sort((a, b) => a.id - b.id);
+    if (buyedUpgrades.length === 0) return;
+    const latestUpgrade = buyedUpgrades[buyedUpgrades.length - 1];
+    setBackgroundImage(latestUpgrade.background_image);
+    setGartenzwergImage(latestUpgrade.gartenzwerg_image);
   }, [upgradeList]);
 
   return (
@@ -26,7 +31,7 @@ export default function Home() {
           <div className="absolute w-full h-full bg-[rgba(0,0,0,0.2)]"></div>
           <Image
             src={backgroundImage}
-            className="w-full h-full select-none"
+            className="select-none object-cover w-full h-full"
             alt=""
           />
         </div>

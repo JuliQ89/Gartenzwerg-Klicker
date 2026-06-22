@@ -1,15 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
 import Upgrade from "./Upgrade";
 import useUpgradeStore from "@/store/useUpgradeStore";
 
 const UpgradeList = () => {
   const upgradeList = useUpgradeStore((state) => state.upgradeList);
-
-  useEffect(() => {
-    console.log("upgradeList", upgradeList);
-  }, [upgradeList]);
 
   return (
     <div className="flex flex-col gap-3 w-full h-full">
