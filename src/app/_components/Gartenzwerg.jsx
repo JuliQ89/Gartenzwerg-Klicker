@@ -40,6 +40,7 @@ const Gartenzwerg = ({ image }) => {
     <div
       ref={gartenzwergRef}
       onClick={handleClick}
+      onContextMenu={(e) => e.preventDefault()}
       className="z-10 cursor-pointer scale-100"
     >
       <Image src={image} height={250} alt="" />
